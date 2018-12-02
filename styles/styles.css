@@ -1,0 +1,286 @@
+@charset "UTF-8";
+/* CSS Document */
+
+* {
+	margin: 0;
+	padding: 0;
+	-mozbox-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+}
+
+
+@font-face {
+	font-family: Quicksand;
+	src:url(quicksand-medium-webfont.woff);
+}
+
+@font-face {
+	font-family: Muli;
+	src:url(muli-regular-webfont.woff);
+}
+
+body {
+	--lightgreen: #a7d231;
+	--darkgreen: #0c5933;
+	--pink: #b11169;
+	--blue: #027ac7;
+	--brown: #63380e;
+	background-color: #000;
+	color: #fff;
+	font-family: Muli, "Lucida Sans Unicode", Arial, sans-serif;
+	font-size: 14px;
+	position: relative;
+}
+
+img {
+	max-width: 100%;
+	max-height: 100%;
+}
+
+h1 {
+	color: var(--pink);
+	font: 3rem Quicksand;
+	margin: 0 2.5vmin;
+}
+
+h2 {
+	color: var(--pink);
+	font: 2rem Quicksand;
+	margin: 0 2.5vmin;
+}
+
+header {
+	padding: 2.5vmin calc(50% - 47.5vmin);
+	display: flex;
+	justify-content: flex-start;
+	align-items: baseline;
+}
+
+.logo {
+	width: 10vmin;
+	height: 10vmin;
+}
+
+main {
+	background-color: #fff;
+	color: #000;
+	display: flex;
+	justify-content: center;
+}
+
+.game-control {
+	height: 22.5vmin;
+	width: 20vmin;
+	padding: 2.5vmin;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+
+p.counter, p.timer {
+	font-size: 1.5rem;
+	color: var(--pink);
+	font-family: Quicksand;
+}
+
+.fa {
+	color: var(--darkgreen);
+	font-size: 1.5rem;
+}
+
+.checked {
+	color: var(--lightgreen);
+}
+
+button {
+	-webkit-appearance: none;
+	appearance: none;
+	background: none;
+	color: var(--pink);
+	border: 3px solid var(--pink);
+	border-radius: 10px;
+	padding: 5px;
+	font-family: Quicksand;
+	font-size: 1.5rem;
+	border-image: none;
+	display: block;
+}
+
+button:hover {
+	background: var(--pink);
+	color: #fff;
+}
+
+.game-board {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-content: space-between;
+	width: 80vmin;
+	height: 80vmin;
+	padding: 2.5vmin;
+}
+
+article.memory-card {
+	width: 17.5vmin;
+	height: 17.5vmin;
+	background-color: #000;
+}
+
+div.memory-card {
+	background: url(../images/webtonic.svg) no-repeat center;
+	background-size: 12.5vmin 12.5vmin;
+	height: 100%;
+	width: 100%;
+}
+
+picture {
+	display: none;
+}
+
+@keyframes wriggle {
+	0% {transform: rotate(0);}
+	20% {transform: rotate(10deg);}
+	40% {transform: rotate(-10deg);}
+	60% {transform: rotate(10deg);}
+	80% {transform: rotate(-10deg);}
+	100% {transform: rotate(0);}
+}
+
+.mismatch {
+	animation: wriggle 0.25s;
+	animation-play-state: paused;
+}
+
+@keyframes whoop {
+	0% {transform: scale(1, 1);}
+	50% {transform: scale(1.1, 1.1);}
+	100% {transform: scale(1, 1);}
+}
+
+.match {
+	animation: whoop 0.5s;
+	animation-play-state: paused;
+}
+
+.start-game {
+	width: 60vmin;
+	height: 20vmin;
+	background-color: rgba(255, 255, 255, 0.9);
+	position: absolute;
+	top: 45%;
+	right: calc(50% - 40vmin);
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.new-game {
+	width: 60vmin;
+	height: 20vmin;
+	padding: 20px;
+	background-color: rgba(255, 255, 255, 0.9);
+	position: absolute;
+	top: 45%;
+	right: calc(50% - 40vmin);
+	display: none;
+	flex-direction: column;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.new-game p {
+	color: var(--darkgreen);
+	text-align: center;
+	font-size: 1.5rem;
+}
+
+@media screen and (orientation: portrait) {
+
+	header {
+		padding: 2.5vmin 12.5vmin;
+	}
+
+	main {
+		flex-direction: column;
+		justify-content: flex-start;
+		align-items: center;
+	}
+
+	.game-control {
+		height: auto;
+		width: 80vmin;
+		flex-direction: row;
+		justify-content: space-between;
+		align-items: center;
+	}
+
+	.start-game, .new-game {
+		top: 50%;
+		right: 20vmin;
+	}
+}
+
+@media screen and (max-width: 1000px) and (orientation: portrait) {
+
+	html {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-height: 1000px) and (orientation: landscape) {
+
+	html {
+		font-size: 12px;
+	}
+}
+
+@media screen and (max-width: 500px) and (orientation: portrait) {
+
+	header {
+		padding: 2.5vmin;
+	}
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	.game-control {
+		width: 100%;
+	}
+
+	.game-board {
+		width: 100vmin;
+		height: 100vmin;
+	}
+
+	article.memory-card {
+		width: 22.5vmin;
+		height: 22.5vmin;
+	}
+
+	p.timer, p.counter, .fa, .reset, .new-game p {
+		font-size: 1rem;
+	}
+
+	.new-game {
+		height: 40vmin;
+	}
+}
+
+@media screen and (max-height: 800px) and (orientation: landscape) {
+
+	h1 {
+		font-size: 1.5rem;
+	}
+
+	h2 {
+		1.25rem;
+	}
+
+	p.timer, p.counter, .fa, .reset, .new-game p {
+		font-size: 1rem;
+	}
+}
